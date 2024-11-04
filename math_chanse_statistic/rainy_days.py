@@ -18,9 +18,14 @@ for _ in range(n):
     else:
         dictionary[result] += 1
 
-print(f"{'-' * 113}")
-sorted_dictionary = dict(sorted(dictionary.items(), key=lambda kv: (-kv[1], kv[0])))
-for (key, value) in sorted_dictionary.items():
-    print(f"Sum: {key} --> Times: {value:_} --> {((value / n) * 100):.2f} %")
+sorted_d = dict(sorted(dictionary.items(), key=lambda kvp: (-kvp[1], kvp[0])))
 
+counter = 0
+for (key, value) in sorted_d.items():
+    counter += 1
+    print(f"#{counter:_} Wins: {key:02} || Times: {value:_} | {(value / n * 100):.2f} %")
+
+print(f"{'-' * 113}")
+print(f"About possibility [{goal_percent}] % from [{m}] total set: ")
+print(f"Max wins: {max(sorted_d.keys())} || Min wins: {min(sorted_d.keys())}")
 print(f"{'-' * 113}")
